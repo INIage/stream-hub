@@ -1,0 +1,13 @@
+
+# Dependency directories
+node_modules
+
+# Generate output
+dist
+
+# Vosual Studio
+.vs
+
+# Compiled
+bin
+obj

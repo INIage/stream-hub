@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Foundation.Connect\Foundation.Connect.csproj" />
+    <ProjectReference Include="..\Foundation.DependencyInjection\Foundation.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Foundation.WebSockets\Foundation.WebSockets.csproj" />
+  </ItemGroup>
+
+</Project>

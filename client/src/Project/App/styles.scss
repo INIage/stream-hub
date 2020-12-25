@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > button {
+    height: 32px;
+    width: 64px;
+
+    margin: 0 5px;
+  }
+}
