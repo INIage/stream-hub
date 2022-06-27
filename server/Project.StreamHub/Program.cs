@@ -11,34 +11,33 @@ namespace Project.StreamHub
     {
         public static void Main()
         {
-            CreateHost().Run();
+            Host.Run();
         }
 
-        private static IHost CreateHost() =>
+        private static IHost Host =>
             new HostBuilder()
             .ConfigureAppConfiguration((context, config) =>
             {
                 bool reloadOnChange = context.Configuration.GetValue("hostBuilder:reloadConfigOnChange", defaultValue: true);
-
                 config.AddJsonFile("appsettings.json", true, reloadOnChange);
             })
             .ConfigureLogging((context, logging) =>
             {
                 logging
-                .AddConfiguration(context.Configuration.GetSection("Logging"))
-                .AddConsole()
-                .AddDebug()
-                .AddEventSourceLogger()
-                .Configure(options =>
-                {
-                    options.ActivityTrackingOptions = ActivityTrackingOptions.SpanId | ActivityTrackingOptions.TraceId | ActivityTrackingOptions.ParentId;
-                });
+                    .AddConfiguration(context.Configuration.GetSection("Logging"))
+                    .AddConsole()
+                    .AddDebug()
+                    .AddEventSourceLogger()
+                    .Configure(options =>
+                    {
+                        options.ActivityTrackingOptions = ActivityTrackingOptions.SpanId | ActivityTrackingOptions.TraceId | ActivityTrackingOptions.ParentId;
+                    });
             })
             .ConfigureWebHost(builder =>
             {
                 builder
-                .UseKestrel()
-                .UseStartup<Startup>();
+                    .UseKestrel()
+                    .UseStartup<Startup>();
             })
             .Build();
     }

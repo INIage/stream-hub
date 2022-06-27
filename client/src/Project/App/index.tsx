@@ -23,17 +23,20 @@ export const App: Preact.FC = () => {
     );
   };
 
-  const Page = () => {
+  const Page: Preact.FC = () => {
     switch (page) {
       case pages.main:
         return <Main />;
       case pages.chat:
         return <Chat />;
+      default:
+        return <></>;
     }
   };
 
   return (
     <>
+      <header></header>
       <Header />
       <Page />
       <Footer />

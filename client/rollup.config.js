@@ -10,7 +10,6 @@ import scss from 'rollup-plugin-scss';
 import copy from 'rollup-plugin-copy';
 import dev from 'rollup-plugin-dev';
 
-
 export default {
   input: "src/index.tsx",
   output: {
@@ -38,7 +37,6 @@ export default {
     }),
     commonjs(),
     resolve({
-      module: true,
       jsnext: true,
       main: true,
       browser: true,

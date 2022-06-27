@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "DependencyInjection": {
+      "commandName": "Project"
+    }
+  }
+}

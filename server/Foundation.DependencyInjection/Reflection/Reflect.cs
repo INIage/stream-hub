@@ -11,8 +11,7 @@
     {
         public static IEnumerable<IRejestry> GetRejestryes()
         {
-            var assemblies = GetApplicationAssemblies();
-            foreach (var assembly in assemblies)
+            foreach (var assembly in GetApplicationAssemblies())
             {
                 foreach (var type in assembly.GetTypes())
                 {

@@ -12,7 +12,7 @@ export const useWebSocket = (url: string) => {
   const [lastMessage, setLastMessage] = useState<any>(null);
   const websocketRef = useRef<WebSocket>(null);
 
-  const sendMessage = useCallback(obj => {
+  const sendMessage = useCallback((obj: object) => {
     if (websocketRef.current.readyState === WebSocketState.OPEN) {
       websocketRef.current.send(JSON.stringify(obj));
     }

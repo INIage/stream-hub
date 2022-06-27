@@ -1,9 +1,7 @@
 namespace Project.StreamHub
 {
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
 
     using Foundation.DependencyInjection;
     using Foundation.WebSockets.Server;
@@ -12,18 +10,13 @@ namespace Project.StreamHub
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDependencyInjection();
             services.AddRouting();
             services.AddControllers();
-            services.AddDependencyInjection();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseRouting();
             app.UseAuthorization();            
             app.UseEndpoints(endpoints =>

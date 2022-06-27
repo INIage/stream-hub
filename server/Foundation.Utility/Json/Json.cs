@@ -7,7 +7,7 @@
 
     public static class Json
     {
-        private static JsonSerializerOptions Options => new JsonSerializerOptions
+        private static JsonSerializerOptions options = new ()
         {
             ReadCommentHandling = JsonCommentHandling.Skip,
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -23,21 +23,21 @@
             AllowTrailingCommas = true,
             ReferenceHandler = null,
             WriteIndented = false,
-        }; 
+        };
         
         public static T Deserialize<T>(string str)
         {
-            return JsonSerializer.Deserialize<T>(str, Options);
+            return JsonSerializer.Deserialize<T>(str, options);
         }
 
         public static T Deserialize<T>(byte[] bytes)
         {
-            return JsonSerializer.Deserialize<T>(bytes, Options);
+            return JsonSerializer.Deserialize<T>(bytes, options);
         }
 
         public static byte[] Serialize<T>(T obj)
         {
-            return JsonSerializer.SerializeToUtf8Bytes(obj, Options);
+            return JsonSerializer.SerializeToUtf8Bytes(obj, options);
         }
     }
 }

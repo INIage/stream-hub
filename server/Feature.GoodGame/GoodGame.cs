@@ -13,6 +13,7 @@
     {
         private readonly IMessageManager message;
         private readonly IGoodGameService service;
+        private IWebSocket websocket;
 
         public GoodGame(IMessageManager messageManager, IGoodGameService goodgameService)
         {
@@ -23,7 +24,7 @@
         public async Task Run(IWebSocket websocket, IWebSocket server)
         {
             service.Init(server);
-
+            
             await websocket.Run(async (Statement statement) =>
             {
                 switch (statement.type)

@@ -10,9 +10,9 @@
     {
         public static void AddDependencyInjection(this IServiceCollection service)
         {
-            Reflect.GetRejestryes()
-                .Filter(rejestry => rejestry is not null)
-                .ForEach(rejestry => rejestry.ConfigureServices(service));
+            Reflect
+                .GetRejestryes()
+                .ForEach(rejestry => rejestry?.ConfigureServices(service));
         }
     }
 }

@@ -2,6 +2,7 @@ import Preact, { useRef } from 'preact/compat';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { action, selector } from 'Foundation/GoodGame/User';
+import { HR } from 'Foundation/UI/HR';
 
 import { login } from './api';
 
@@ -16,6 +17,7 @@ export const Main: Preact.FC = () => {
 
   return (
     <main id="main">
+      <HR />
       {!GGUser ? (
         <div class="form">
           <span>GGLogin!</span>
@@ -36,6 +38,7 @@ export const Main: Preact.FC = () => {
           <span>You are logged!</span>
         </div>
       )}
+      <HR />
     </main>
   );
 };
